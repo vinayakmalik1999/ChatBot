@@ -19,11 +19,56 @@ function Chatbot(props) {
     },
     {
       id: '3',
-      message: 'Hi {previousValue}, nice to meet you!',
-      end: true,
+      message: 'Hi {previousValue}, what would you like to do today!',
+      trigger: '4',
     },
+    {
+      id:'4',
+      options:[
+        {
+          value:'navigation',
+          label:'Navigation',
+          trigger:'navi'
+        },
+        {
+          value:'exploring website',
+          label:'Exploring Website',
+          trigger:'explor'
+        },
+        {
+          value:'other',
+          label:'Other Help',
+          trigger:'other'
+        }
+      ]
+    },
+    {
+      id:'navi',
+      message:'where do you want to go',
+      trigger:'5'
+    },
+    {
+      id:'5',
+      user:true,
+      trigger:'6'
+    },
+    {
+      id:'6',
+      message:'not implemented yet',
+      trigger:'1'
+    },
+    {
+      id:'explor',
+      message:'not implemented yet',
+      trigger:'1'
+    },
+    {
+      id:'other',
+      message:'not implemented yet',
+      trigger:'1'
+    }
     ];
 
-   return <ChatBot steps={steps} cache = {true}  recognitionEnable={true} {...config} />;
+   return <ChatBot steps={steps} cache = {true}  recognitionEnable={true} recognitionLang={'hi-IN	'}{...config} />;
   }
   export default Chatbot;
