@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
-import { Canvas, useLoader } from "react-three-fiber";
+import React, {Component,useRef} from 'react';
+import { Canvas, useLoader, useFrame } from "react-three-fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles.css";
-import model from "models/hospital.glb"
+import model from "./models/arwing.glb"
+
 
 export default function Model() {
+   const group = useRef();
   const { nodes } = useLoader(GLTFLoader,model );
+  useFrame(() => {
+    group.current.rotation.y += 0.004;
+  });
   return (
-    <group>
+    <group ref={group}>
       <mesh visible geometry={nodes.Default.geometry}>
         <meshStandardMaterial
           attach="material"

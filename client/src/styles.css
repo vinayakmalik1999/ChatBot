@@ -10,3 +10,7 @@ body,
   margin: 0;
   padding: 0;
 }
+.branding-watermark branding-watermark--isFreeEmbed{
+  display: none;
+  transition: linear 0.1s
+}
