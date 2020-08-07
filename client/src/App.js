@@ -25,7 +25,7 @@ const popover = (
 );
 
 const Example = () => (
-  <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+  <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
     <Button variant="primary">Drone</Button>
   </OverlayTrigger>
 );
@@ -49,7 +49,6 @@ class App extends Component{
       <div>
 
       <Model/>
-      <Example/>
       <ChatBot/>
 
       </div>
