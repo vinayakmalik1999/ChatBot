@@ -69,6 +69,6 @@ function Chatbot(props) {
     }
     ];
 
-   return <ChatBot steps={steps} cache = {true}  recognitionEnable={true} recognitionLang={'en-IN	'}{...config} />;
+   return <ChatBot steps={steps} recognitionEnable={true} speechSynthesis={{ enable: true, lang: 'en' }} recognitionLang={'hi-IN'}{...config} />;
   }
   export default Chatbot;

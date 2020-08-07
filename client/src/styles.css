@@ -2,15 +2,21 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+
 .branding-watermark branding-watermark--isFreeEmbed{
   display: none;
   transition: linear 0.1s
+}
+
+.btn-primary{
+  position: absolute;
+  z-index: 2;
+  top:20%;
+  left:15%;
+  border-radius: 50%;
+}
+.model{
+  position: absolute;
+  height: 843px;
+  z-index: 1;
 }
