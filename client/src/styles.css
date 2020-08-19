@@ -49,7 +49,7 @@
   position: fixed; /* Stay in place */
   top: 0;
   left: 0;
-  background-color: #f7f7f7; /* Black*/
+  background-color: #b1a9a9; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -90,18 +90,61 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
-.inner {
-  position: absolute;
-  z-index: 1004;
-  height: 100px;
-  background: red;
-  width: 100px;
-  left: 95%;
-  top: 5%;
-  transition: right 1.5s;
-
+.bnt1, .bnt2, .bnt3, .bnt4 {
+  position:absolute;
+  background-color: #362a29;
+  border: none;
+  padding: 6px 12px;
+  width:2px;
+  text-align: center;
+  color: transparent;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.4s;
+  z-index: 1001;
 }
-.inner:hover{
-  right:100px;
+.bnt1 {
+  top:18%;
+  left:0;
+}
+.bnt2 {
+  top:36%;
+  left:0;
+}
+.bnt3 {
+  top:54%;
+  left:0;
+}
+.bnt4 {
+  top:72%;
+  left:0;
+}
+
+
+
+.bnt1:hover, .bnt2:hover, .bnt3:hover, .bnt4:hover {
+  background-color: #000000;
+  color: white;
+  width:15%;
+}
+.dialog-enter {
+  opacity: 0.01;
+  transform: scale(1.1);
+}
+
+.dialog-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms;
+}
+
+.dialog-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dialog-exit-active {
+  opacity: 0.01;
+  transform: scale(1.1);
+  transition: all 300ms;
 }

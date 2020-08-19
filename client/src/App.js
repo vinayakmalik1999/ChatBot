@@ -1,22 +1,17 @@
 import React, {Component} from 'react';
-import {Suspense} from "react";
-import Loading from './Loading.js'
 import Model from './Model.js'
-import { Canvas,useLoader } from "react-three-fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles.css";
 import ChatBot from "./Chatbot.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'react-bootstrap/Image'
-import Img from './images/hospital-building-symbol-03.jpg'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Popover from 'react-bootstrap/Popover'
 import Button from 'react-bootstrap/Button'
-import Iframe from 'react-iframe'
 import FullScreenOverlay from './overlay.js'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import ReactPlayer from 'react-player/lazy'
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 //var x = document.getElementsByClassName("example");
 const popover = (
@@ -40,53 +35,31 @@ const NavButton = ({ onClick, isDisplayed }) => (
     Nav
   </Button>: <div></div>
 );
+const Techbutton1 = ({onClick, isDisplayed }) => (
+
+  <TransitionGroup component={null}>
+  <CSSTransition classNames="fade" timeout={300}>
+  !isDisplayed?
+  <button class="bnt1" onClick={onClick}>DRONE</button>:<div></div>
+    </CSSTransition>
+  </TransitionGroup>
+)
+  const Techbutton2 = ({onClick, isDisplayed }) => (
+    !isDisplayed?
+    <button class="bnt2" onClick={onClick}>BLOCKCHAIN</button>:<div></div>
+  )
+  const Techbutton3 = ({onClick, isDisplayed }) => (
+    !isDisplayed?
+    <button class="bnt3" onClick={onClick}>VISION</button>:<div></div>
+  )
+  const Techbutton4 = ({onClick, isDisplayed }) => (
+    !isDisplayed?
+    <button class="bnt4" onClick={onClick}>DIGITALTWIN</button>:<div></div>
+  )
 const SideNav = ({onClick}) => (
   <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onClick={onClick}>&times;</a>
-  <Accordion>
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="0">
-        Drone
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="0">
-      <Card.Body><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p> <ReactPlayer width = "auto" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
-      <a href = "javascript:void(0)">Link to Demo</a>
-      </Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="1">
-        Geriatrics
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="1">
-      <Card.Body>Demo</Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="2">
-        Computer Vision
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="2">
-      <Card.Body>Demo</Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="3">
-        Digital Twin
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="3">
-      <Card.Body>Demo</Card.Body>
-    </Accordion.Collapse>
-  </Card>
-</Accordion>
+
   </div>
 )
 
@@ -96,24 +69,109 @@ class App extends Component{
     this.state = {
       overlay:true,
       navIsOpen:false,
+      istechoneOpen:false,
+      istechtwoOpen:false,
+      istechthreeOpen:false,
+      istechfourOpen:false,
+      techShow:false,
     }
     this.buttonHandler = this.buttonHandler.bind(this)
     this.openNav = this.openNav.bind(this)
     this.closeNav = this.closeNav.bind(this)
+    this.opentechhOne = this.opentechhOne.bind(this)
+    this.opentechhTwo = this.opentechhTwo.bind(this)
+    this.opentechhThree = this.opentechhThree.bind(this)
+    this.opentechhFour = this.opentechhFour.bind(this)
+    this.handleTechShow = this.handleTechShow.bind(this)
   }
 
   buttonHandler(){
     this.setState({overlay:!this.state.overlay});
 
   }
+  handleTechShow(){
+    if(this.state.techShow===false){
+      this.setState({istechoneOpen:false,
+                     istechtwoOpen:false,
+                     istechthreeOpen:false,
+                     istechfourOpen:false})
 
+
+
+  }}
+opentechhOne(){
+  if(!this.state.navIsOpen){
+    this.openNav()
+  }
+  else {
+    console.log("kj")
+  }
+  this.setState({istechoneOpen:true})
+  this.setState({
+    istechtwoOpen:false,
+    istechthreeOpen:false,
+    istechfourOpen:false})
+
+}
+opentechhTwo(){
+  if(!this.state.navIsOpen){
+    this.openNav()
+  }
+  else {
+    console.log("kj")
+  }
+  this.setState({istechtwoOpen:true})
+  this.setState({
+    istechoneOpen:false,
+    istechthreeOpen:false,
+    istechfourOpen:false})
+
+}
+opentechhThree(){
+  if(!this.state.navIsOpen){
+    this.openNav()
+  }
+  else {
+    console.log("kj")
+  }
+  this.setState({istechthreeOpen:true})
+  this.setState({
+    istechtwoOpen:false,
+    istechoneOpen:false,
+    istechfourOpen:false})
+
+
+}
+opentechhFour(){
+  if(!this.state.navIsOpen){
+    this.openNav()
+  }
+  else {
+    console.log("kj")
+  }
+  this.setState({istechfourOpen:true})
+  this.setState({
+    istechtwoOpen:false,
+    istechthreeOpen:false,
+    istechoneOpen:false})
+
+
+}
 openNav(){
-this.setState({navIsOpen:!this.state.navIsOpen})
+  if(!this.state.navIsOpen){
+    this.setState({navIsOpen:!this.state.navIsOpen})
+  }
+  else {
+    console.log("kj")
+  }
 document.getElementById("mySidenav").style.width = "37%";
  document.getElementById("root").style.marginLeft = "37%";
 }
 closeNav(){
-  this.setState({navIsOpen:!this.state.navIsOpen})
+  //add all ribbons show
+  this.setState({navIsOpen:!this.state.navIsOpen,
+                  techShow:false})
+                  this.handleTechShow()
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("root").style.marginLeft = "0";
 }
@@ -122,11 +180,15 @@ closeNav(){
 
 
       <div>
-      <div class="overflow"><Button variant="primary">DRONE</Button></div>
+
+      <Techbutton1 onClick={this.opentechhOne} isDisplayed={this.state.istechoneOpen}/>
+      <Techbutton2 onClick={this.opentechhTwo} isDisplayed={this.state.istechtwoOpen}/>
+      <Techbutton3 onClick={this.opentechhThree} isDisplayed={this.state.istechthreeOpen}/>
+      <Techbutton4 onClick={this.opentechhFour} isDisplayed={this.state.istechfourOpen}/>
+
       {this.state.overlay?<div><Button variant="primary" onClick= {this.buttonHandler}>X</Button><FullScreenOverlay/></div>:<div></div>}
       <Model/>
       <ChatBot/>
-      <NavButton onClick={this.openNav} isDisplayed={this.state.navIsOpen}/>
       <SideNav onClick={this.closeNav}/>
       </div>
 

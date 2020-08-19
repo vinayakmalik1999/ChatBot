@@ -1,6 +1,4 @@
 import React, {Component,useRef} from 'react';
-import { Canvas, useLoader, useFrame } from "react-three-fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles.css";
 import model from "./models/arwing.glb"
 import Iframe from 'react-iframe'
@@ -14,7 +12,7 @@ export default class Model extends Component{
     }
   }
   componentDidMount(){
-    
+
   }
   render(){
     return (
