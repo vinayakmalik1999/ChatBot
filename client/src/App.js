@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Model from './Model.js'
 import "./styles.css";
-import ChatBot from "./Chatbot.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'react-bootstrap/Image'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
@@ -37,12 +36,10 @@ const NavButton = ({ onClick, isDisplayed }) => (
 );
 const Techbutton1 = ({onClick, isDisplayed }) => (
 
-  <TransitionGroup component={null}>
-  <CSSTransition classNames="fade" timeout={300}>
+
   !isDisplayed?
   <button class="bnt1" onClick={onClick}>DRONE</button>:<div></div>
-    </CSSTransition>
-  </TransitionGroup>
+
 )
   const Techbutton2 = ({onClick, isDisplayed }) => (
     !isDisplayed?
@@ -56,11 +53,76 @@ const Techbutton1 = ({onClick, isDisplayed }) => (
     !isDisplayed?
     <button class="bnt4" onClick={onClick}>DIGITALTWIN</button>:<div></div>
   )
-const SideNav = ({onClick}) => (
+const SideNav = ({onClick,isDisplayed2,isDisplayed3,isDisplayed4}) => (
   <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onClick={onClick}>&times;</a>
+  <Tech2 isDisplayed={isDisplayed2}/>
 
   </div>
+)
+const Overlay = ({onClick,isDisplayed,isDisplayed1,isDisplayed3,isDisplayed4}) => (
+  isDisplayed?
+  <div id="myNav" class="overlay" onClick={onClick}>
+  <Tech1 isDisplayed={isDisplayed1}/>
+  <Tech3 isDisplayed={isDisplayed3}/>
+  <Tech4 isDisplayed={isDisplayed4}/>
+  </div>:<div></div>
+)
+
+const Tech1 = ({isDisplayed}) => (
+  isDisplayed?
+  <Card bsPrefix="Tech1">
+    <Card.Header>
+        Drone
+        <a href = "javascript:void(0)">Link to Demo</a>
+    </Card.Header>
+      <Card.Body><ReactPlayer width = "auto" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      </Card.Body>
+  </Card>:<div></div>
+
+
+
+)
+const Tech2 = ({isDisplayed}) => (
+  isDisplayed?
+  <Card >
+    <Card.Header>
+
+        BlockChain
+        <a href = "javascript:void(0)">Link to Demo</a>
+
+    </Card.Header>
+
+      <Card.Body> Demo </Card.Body>
+
+  </Card>:<div></div>
+)
+const Tech3 = ({isDisplayed}) => (
+  isDisplayed?
+  <Card>
+    <Card.Header>
+
+        Computer Vision
+        <a href = "javascript:void(0)">Link to Demo</a>
+
+    </Card.Header>
+
+      <Card.Body>Demo</Card.Body>
+
+  </Card>:<div></div>
+)
+const Tech4 = ({isDisplayed}) => (
+  isDisplayed?
+  <Card>
+    <Card.Header>
+
+        Digital Twin
+        <a href = "javascript:void(0)">Link to Demo</a>
+
+    </Card.Header>
+
+      <Card.Body>Demo</Card.Body>
+  </Card>:<div></div>
 )
 
 class App extends Component{
@@ -68,6 +130,7 @@ class App extends Component{
     super(props)
     this.state = {
       overlay:true,
+      techoverlay:false,
       navIsOpen:false,
       istechoneOpen:false,
       istechtwoOpen:false,
@@ -83,6 +146,7 @@ class App extends Component{
     this.opentechhThree = this.opentechhThree.bind(this)
     this.opentechhFour = this.opentechhFour.bind(this)
     this.handleTechShow = this.handleTechShow.bind(this)
+    this.closetechoverlay = this.closetechoverlay.bind(this)
   }
 
   buttonHandler(){
@@ -100,18 +164,30 @@ class App extends Component{
 
   }}
 opentechhOne(){
-  if(!this.state.navIsOpen){
-    this.openNav()
+  // if(!this.state.navIsOpen){
+  //   this.openNav()
+  // }
+  // else {
+  //   console.log("kj")
+  // }
+  if(!this.state.techoverlay){
+    this.opentechoverlay()
   }
-  else {
-    console.log("kj")
-  }
+
   this.setState({istechoneOpen:true})
   this.setState({
     istechtwoOpen:false,
     istechthreeOpen:false,
     istechfourOpen:false})
 
+}
+opentechoverlay(){
+  this.setState({techoverlay:true})
+}
+closetechoverlay(){
+  this.setState({techoverlay:false,
+                 techShow:false})
+                 this.handleTechShow()
 }
 opentechhTwo(){
   if(!this.state.navIsOpen){
@@ -120,6 +196,10 @@ opentechhTwo(){
   else {
     console.log("kj")
   }
+  if(this.state.techoverlay){
+    this.closetechoverlay()
+  }
+
   this.setState({istechtwoOpen:true})
   this.setState({
     istechoneOpen:false,
@@ -128,11 +208,8 @@ opentechhTwo(){
 
 }
 opentechhThree(){
-  if(!this.state.navIsOpen){
-    this.openNav()
-  }
-  else {
-    console.log("kj")
+  if(!this.state.techoverlay){
+    this.opentechoverlay()
   }
   this.setState({istechthreeOpen:true})
   this.setState({
@@ -143,11 +220,8 @@ opentechhThree(){
 
 }
 opentechhFour(){
-  if(!this.state.navIsOpen){
-    this.openNav()
-  }
-  else {
-    console.log("kj")
+  if(!this.state.techoverlay){
+    this.opentechoverlay()
   }
   this.setState({istechfourOpen:true})
   this.setState({
@@ -188,8 +262,8 @@ closeNav(){
 
       {this.state.overlay?<div><Button variant="primary" onClick= {this.buttonHandler}>X</Button><FullScreenOverlay/></div>:<div></div>}
       <Model/>
-      <ChatBot/>
-      <SideNav onClick={this.closeNav}/>
+      <Overlay onClick={this.closetechoverlay} isDisplayed={this.state.techoverlay} isDisplayed1={this.state.istechoneOpen} isDisplayed3={this.state.istechthreeOpen} isDisplayed4={this.state.istechfourOpen}/>
+        <SideNav onClick={this.closeNav}  isDisplayed2={this.state.istechtwoOpen} isDisplayed3={this.state.istechthreeOpen} isDisplayed4={this.state.istechfourOpen}/>
       </div>
 
 
