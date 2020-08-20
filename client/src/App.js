@@ -11,6 +11,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import ReactPlayer from 'react-player/lazy'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import ContosoLogo from "./images/MicrosoftTeams-image (1) (1).png"
 
 //var x = document.getElementsByClassName("example");
 const popover = (
@@ -254,13 +255,13 @@ closeNav(){
 
 
       <div>
-
+      <img class = "logo" src ={ContosoLogo}/>
       <Techbutton1 onClick={this.opentechhOne} isDisplayed={this.state.istechoneOpen}/>
       <Techbutton2 onClick={this.opentechhTwo} isDisplayed={this.state.istechtwoOpen}/>
       <Techbutton3 onClick={this.opentechhThree} isDisplayed={this.state.istechthreeOpen}/>
       <Techbutton4 onClick={this.opentechhFour} isDisplayed={this.state.istechfourOpen}/>
 
-      {this.state.overlay?<div><Button variant="primary" onClick= {this.buttonHandler}>X</Button><FullScreenOverlay/></div>:<div></div>}
+      {this.state.overlay?<div><Button variant="link" onClick= {this.buttonHandler}>X</Button><FullScreenOverlay/></div>:<div></div>}
       <Model/>
       <Overlay onClick={this.closetechoverlay} isDisplayed={this.state.techoverlay} isDisplayed1={this.state.istechoneOpen} isDisplayed3={this.state.istechthreeOpen} isDisplayed4={this.state.istechfourOpen}/>
         <SideNav onClick={this.closeNav}  isDisplayed2={this.state.istechtwoOpen} isDisplayed3={this.state.istechthreeOpen} isDisplayed4={this.state.istechfourOpen}/>

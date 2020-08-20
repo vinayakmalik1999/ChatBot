@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+
 }
 
 
@@ -8,12 +9,13 @@
   transition: linear 0.1s
 }
 
-.btn-primary{
+.btn-link{
   position: absolute;
   z-index: 1001;
   top:2%;
   left:95%;
   border-radius: 50%;
+  color:#0f0f0e;
 }
 .btn-outline-dark{
   z-index: 2;
@@ -24,7 +26,7 @@
 .model{
   position: absolute;
   height: -webkit-fill-available;
-
+  height: moz
 }
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */
@@ -93,7 +95,7 @@
 }
 .bnt1, .bnt2, .bnt3, .bnt4 {
   position:absolute;
-  background-color: #362a29;
+  background-color: #ffffff;
   border: none;
   padding: 6px 12px;
   width:2px;
@@ -153,12 +155,24 @@
     position: absolute;
     width: 50%;
     height:50%;
-    top:10%;
-    left:10%;
+    top:25%;
+    left:27%;
     min-width: 0;
     word-wrap: break-word;
     background-color: #000000;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 1px;
+}
+.overlayimg{
+   /* Disable horizontal scroll */
+   overflow:hidden;
+}
+.logo{
+  position: absolute;
+  left: 0%;
+  
+  z-index: 5000;
+  max-width: 22%;
+  max-height: 11%;
 }

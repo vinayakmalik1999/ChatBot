@@ -1,6 +1,5 @@
 import React, {Component,useRef} from 'react';
 import "./styles.css";
-import model from "./models/arwing.glb"
 import Iframe from 'react-iframe'
 
 
