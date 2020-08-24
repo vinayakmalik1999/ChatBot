@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./overlay.css"
-import img from './images/hospital final static image.JPG'
+import img from './images/hospital.PNG'
 export default class Overlay extends Component{
   constructor(props){
     super(props)

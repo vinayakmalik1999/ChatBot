@@ -26,7 +26,6 @@
 .model{
   position: absolute;
   height: -webkit-fill-available;
-  height: moz
 }
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */
@@ -85,7 +84,7 @@
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #root {
   transition: margin-left .5s;
-
+  overflow: hidden;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -93,11 +92,11 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-.bnt1, .bnt2, .bnt3, .bnt4 {
+.bnt1, .bnt2, .bnt3, .bnt4, .bnt5 {
   position:absolute;
-  background-color: #ffffff;
+  background-color: #eeeeee;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 16px;
   width:2px;
   text-align: center;
   color: transparent;
@@ -107,25 +106,30 @@
   z-index: 1001;
 }
 .bnt1 {
-  top:18%;
-  left:0;
+  top:17%;
+  left:-0.3%;
 }
 .bnt2 {
-  top:36%;
-  left:0;
+  top:34%;
+  left:-0.3%;
 }
 .bnt3 {
-  top:54%;
-  left:0;
+  top:51%;
+  left:-0.3%;
 }
 .bnt4 {
-  top:72%;
-  left:0;
+  top:68%;
+  left:-0.3%;
+}
+.bnt5 {
+  top:85%;
+  left:-0.3%;
 }
 
 
 
-.bnt1:hover, .bnt2:hover, .bnt3:hover, .bnt4:hover {
+
+.bnt1:hover, .bnt2:hover, .bnt3:hover, .bnt4:hover, .bnt5:hover {
   background-color: #000000;
   color: white;
   width:15%;
@@ -154,15 +158,16 @@
 .Tech1 {
     position: absolute;
     width: 50%;
-    height:50%;
-    top:25%;
-    left:27%;
+    height:61%;
+    top:20%;
+    z-index: 2000;
+    left:25%;
     min-width: 0;
     word-wrap: break-word;
     background-color: #000000;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
-    border-radius: 1px;
+    border-radius: 10px;
 }
 .overlayimg{
    /* Disable horizontal scroll */
@@ -170,9 +175,114 @@
 }
 .logo{
   position: absolute;
-  left: 0%;
-  
+  left: 1%;
+  top:2%;
   z-index: 5000;
   max-width: 22%;
   max-height: 11%;
+}
+.svg3 {
+  position:fixed;
+  height:6%;
+  top:53%;
+  left:-2%;
+  width: 6%;
+}
+.svg3:hover {
+  visibility: hidden;
+}
+.pogo {
+  position: absolute;
+  width: 16.2%;
+  height:15%;
+  top:0.1%;
+  z-index: 2000;
+  left:0%;
+  min-width: 0;
+  opacity: 0.70;
+  word-wrap: break-word;
+  background-color: #e9ece1;
+  background-clip: border-box;
+  border: 2px solid rgba(0,0,0,.125);
+  border-radius: 15px;
+}
+.player{
+}
+.cardBodyCustom{
+  flex: 1 1 auto;
+min-height: 1px;
+padding-left: 6px;
+padding-right: 6px;
+padding-top: 5px;
+
+}
+.wrapper{
+  position: absolute;
+  z-index: 1001;
+  top:5%;
+  left:88%;
+  transform: translate(-50%, -50%);
+}
+
+.link_wrapper{
+  position: relative;
+}
+
+.close {
+  display: block;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+}
+
+.icon{
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  position: absolute;
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}
+
+.new{
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+  fill: #2ecc71;
+  transition: all .35s;
+}
+
+.close:hover{
+  width: 200px;
+  border: 3px solid #2ecc71;
+  background: transparent;
+  color: #2ecc71;
+}
+
+.close:hover + .icon{
+  border: 3px solid #2ecc71;
+  right: -25%;
+}
+
+.tabs-container{
+  position: fixed;
+  width: -webkit-fill-available;
+  margin: 9%;
+  border: 1px solid #fbfbfb;
+  height: -webkit-fill-available;
+  color: #eeeeee;
 }
