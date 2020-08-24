@@ -14,15 +14,15 @@ export default class New extends Component{
   render(){
     return (
       <div class="tabs-container">
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab eventKey="home" title="Home">
-          Blasmaslfaksdnjkas
+      <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+        <Tab eventKey="home" title="tech1">
+          <ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
         </Tab>
-        <Tab eventKey="profile" title="Profile">
-          dasdasdmasdnkjasdn
+        <Tab eventKey="profile" title="tech2">
+          <ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
         </Tab>
-        <Tab eventKey="contact" title="Contact" disabled>
-          adasndbasjkdnjkasndjkasjhdnjkas
+        <Tab eventKey="contact" title="tech3" >
+          <ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
         </Tab>
       </Tabs>
       </div>

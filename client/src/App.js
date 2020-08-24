@@ -10,16 +10,11 @@ import Card from 'react-bootstrap/Card'
 import ReactPlayer from 'react-player/lazy'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import ContosoLogo from "./images/1.png"
-import New from './New.js'
-import Home from './Home.js'
+
 
 import {ReactComponent as ReactLogo} from './images/technology.svg';
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  Link
-} from "react-router-dom";
+import FullScreenOverlay from './overlay.js'
+import Model from './Model.js'
 
 
 //var x = document.getElementsByClassName("example");
@@ -74,6 +69,19 @@ const SideNav = ({onClick,isDisplayed2,isDisplayed3,isDisplayed4}) => (
 
   </div>
 )
+const OverlayButton =({onClick}) => (
+  <div onClick={onClick} class="wrapper">
+  <div class="link_wrapper">
+    <a class="close" href="javascript:void(0)">OPEN</a>
+    <div class="icon">
+      <svg class ="new" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
+        <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
+      </svg>
+    </div>
+  </div>
+
+</div>
+)
 const Overlay = ({onClick,isDisplayed,isDisplayed1,isDisplayed2,isDisplayed3,isDisplayed4,isDisplayed5}) => (
   isDisplayed?
   <div id="myNav" class="overlay" onClick={onClick}>
@@ -89,9 +97,9 @@ const Tech1 = ({isDisplayed}) => (
   isDisplayed?
   <Card bsPrefix="Tech1">
   <Card.Title>Drone</Card.Title>
-      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player" controls="true" width = "auto" height="375px" loop="true" url='https://youtu.be/w8UDJKwMl8A' />
       </Card.Body>
-      <Card.Footer align="right"><a href = "javascript:void(0)">Link to Demo</a></Card.Footer>
+      <Card.Footer align="right"><a href = "https://afb83daa7be2.ngrok.io/drone">Link to Demo</a></Card.Footer>
   </Card>:<div></div>
 
 
@@ -101,36 +109,36 @@ const Tech2 = ({isDisplayed}) => (
   isDisplayed?
   <Card bsPrefix="Tech1">
   <Card.Title>Blockchain</Card.Title>
-      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player"  controls="true" width = "auto" height="375px" loop="true" url='https://youtu.be/1pUvIJAbsVc' />
       </Card.Body>
-      <Card.Footer align="right"><a href = "javascript:void(0)">Link to Demo</a></Card.Footer>
+      <Card.Footer align="right"><a href = "https://afb83daa7be2.ngrok.io/blockchain">Link to Demo</a></Card.Footer>
       </Card>:<div></div>
 )
 const Tech3 = ({isDisplayed}) => (
   isDisplayed?
   <Card bsPrefix="Tech1">
   <Card.Title>Vision</Card.Title>
-      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player" controls="true" width = "auto" height="375px" loop="true" url='https://youtu.be/gXkCLWn9QFQ' />
       </Card.Body>
-      <Card.Footer align="right"><a href = "javascript:void(0)">Link to Demo</a></Card.Footer>
+      <Card.Footer align="right"><a href = "https://afb83daa7be2.ngrok.io/vision">Link to Demo</a></Card.Footer>
         </Card>:<div></div>
 )
 const Tech4 = ({isDisplayed}) => (
   isDisplayed?
   <Card bsPrefix="Tech1">
   <Card.Title>Digital Twin</Card.Title>
-      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player" controls="true" width = "auto" height="375px" loop="true" url='https://youtu.be/vXHMqgM6D08' />
       </Card.Body>
-      <Card.Footer align="right"><a href = "javascript:void(0)">Link to Demo</a></Card.Footer>
+      <Card.Footer align="right"><a href = " https://28086ef4c041.ngrok.io">Link to Demo</a></Card.Footer>
   </Card>:<div></div>
 )
 const Tech5 = ({isDisplayed}) => (
   isDisplayed?
   <Card bsPrefix="Tech1">
   <Card.Title>Geriatrics</Card.Title>
-      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player"  width = "auto" height="375px" url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <Card.Body bsPrefix="cardBodyCustom"><ReactPlayer class="player" controls="true" width = "auto" height="375px" loop="true" url='https://youtu.be/iFozpVW71jo' />
       </Card.Body>
-      <Card.Footer align="right"><a href = "javascript:void(0)">Link to Demo</a></Card.Footer>
+      <Card.Footer align="right"><a href = "https://afb83daa7be2.ngrok.io/geriatrics">Link to Demo</a></Card.Footer>
   </Card>:<div></div>
 )
 
@@ -157,6 +165,7 @@ class App extends Component{
     this.opentechhFour = this.opentechhFour.bind(this)
     this.opentechhFive = this.opentechhFive.bind(this)
     this.handleTechShow = this.handleTechShow.bind(this)
+    this.buttonHandler = this.buttonHandler.bind(this)
     this.closetechoverlay = this.closetechoverlay.bind(this)
   }
 
@@ -172,6 +181,10 @@ class App extends Component{
 
 
   }}
+  buttonHandler(){
+    this.setState({overlay:!this.state.overlay});
+
+  }
 opentechhOne(){
   // if(!this.state.navIsOpen){
   //   this.openNav()
@@ -286,7 +299,6 @@ closeNav(){
 
 
       <div>
-      <Router>
       <img class = "logo" src ={ContosoLogo}/>
       <Card bsPrefix="pogo"></Card>
 
@@ -295,18 +307,11 @@ closeNav(){
       <Techbutton3 onClick={this.opentechhThree} isDisplayed={this.state.istechthreeOpen}/>
       <Techbutton4 onClick={this.opentechhFour} isDisplayed={this.state.istechfourOpen}/>
       <Techbutton5 onClick={this.opentechhFive} isDisplayed={this.state.istechfiveOpen}/>
+      {this.state.overlay?<div><Button variant="outline-primary" onClick= {this.buttonHandler}>OPEN</Button><FullScreenOverlay/></div>:<div></div>}
       <Overlay onClick={this.closetechoverlay} isDisplayed={this.state.techoverlay} isDisplayed1={this.state.istechoneOpen} isDisplayed2={this.state.istechtwoOpen} isDisplayed3={this.state.istechthreeOpen} isDisplayed4={this.state.istechfourOpen} isDisplayed5={this.state.istechfiveOpen}/>
         <SideNav onClick={this.closeNav}  isDisplayed2={this.state.istechtwoOpen} isDisplayed3={this.state.istechthreeOpen} isDisplayed4={this.state.istechfourOpen}/>
-      <Switch>
- <Route exact path="/" component={Home}/>
- <Route path="/new" component={New}/>
 
-</Switch>
-
-</Router>
-
-
-
+        <Model/>
       </div>
 
 
